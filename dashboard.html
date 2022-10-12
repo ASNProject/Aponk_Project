@@ -1,110 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Selamat Datang di APONK</title>
-        <link rel="stylesheet" href="style2.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <aside>
-                <div class="top">
-                    <div class="logo">
-                        <img src="./assets/images/aponk.png" alt="">
-                    </div>
-                    <div class="close" id="close_button">
-                        <span class="material-icons-sharp">close</span>
-                    </div>
-                </div>
-                <div class="sidebar">
-                    <a href="#">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Petugas</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Penduduk</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Pengunjung</h3>
-                    </a>
-                    <a href="#">
-                        <span class="material-icons-sharp">logout</span>
-                        <h3>Keluar</h3>
-                    </a>
-                </div>
-            </aside>
-            <main>
-                <h1 class="dashboard">Dashboard</h1>
-                <div class="date">
-                    <input type="date">
-                </div>
-                <div class="peta">
-                    <h2>Peta Nusakambangan</h2>
-                    <hr>
-                    <div class="responsive-map-container" >
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23233.03818032581!2d108.9858042434389!3d-7.743846382611766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650d3fd2297463%3A0xabaa36ad13f3abf0!2sPos%20Satgas%20Kamtib%20Nusakambangan%20di%20Wijayapura!5e0!3m2!1sid!2sid!4v1663776095890!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <h2 style="margin-top: 10px;">Data Pantauan</h2>
-                <div class="insights">
-                        <div class="dataharian">
-                            <span class="material-icons-sharp">analytics</span>
-                            <div class="middle">
-                                <div class="left" >
-                                    <h3>Data Harian</h3>
-                                    <h1>1000</h1>
-                                </div>
-                                <small class="text-muted">Orang/Hari</small>
-                            </div>
-                        </div>
-                        <div class="datahbulanan">
-                            <span class="material-icons-sharp">analytics</span>
-                            <div class="middle">
-                                <div class="left">
-                                    <h3>Data Bulanan</h3>
-                                    <h1>30000</h1>
-                                </div>
-                                <small class="text-muted">Orang/Bulan</small>
-                            </div>
-                        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Selamat Datang di APONK</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-                    <div class="grafik">
-                        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-                        <script>
-                            var xValues = ["Petugas", "Penduduk", "Pengunjung"];
-                            var yValues = [100, 150, 50];
-                            var barColor = [
-                                "#b91d47",
-                                "#00aba9",
-                                "#2b5797",
-                            ];
-
-                            new Chart("myChart", {
-                                type: "pie",
-                                data: {
-                                    labels: xValues,
-                                    datasets: [{
-                                        backgroundColor: barColor,
-                                        data: yValues
-                                    }]
-                                },
-                                options: {
-                                    title: {
-                                        display: true,
-                                        text: "Data Pantauan Harian"
-                                    }
-                                }
-                            });
-                        </script>
-                    </div>
-                </div>
-            </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container d-flex">
+      <div class="sidebar" id="side_nav">
+        <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+          <h1 class="fs-4">
+            <span class="bg-white text-dark rounded shadow px-2 me-2">A</span
+            ><span class="text-white">APONK</span>
+          </h1>
+          <button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+            <i class="fas fa-stream"></i>
+          </button>
         </div>
-    </body>
+        <ul class="list-unstyled px-2">
+          <li class="">
+            <a href="#" class="text-decoration-none px-3 py-2 d-block"
+              ><i class="fas fa-users icon_sidebar"></i> Petugas</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="#"
+              class="text-decoration-none px-3 py-2 d-block txt_sidebar"
+              ><i class="fas fa-users icon_sidebar"></i> Penduduk</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="#"
+              class="text-decoration-none px-3 py-2 d-block txt_sidebar"
+              ><i class="fas fa-user-friends icon_sidebar"></i> Pengunjung</a
+            >
+          </li>
+        </ul>
+        <hr class="h-color mx-2" />
+
+        <ul class="list-unstyled px-2 pt-2">
+          <li class="">
+            <a
+              href="index.html"
+              class="text-decoration-none px-3 py-2 d-block txt_sidebar"
+              ><i class="fas fa-sign-out icon_sidebar"></i> Keluar</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <div class="d-flex justify-content-between d-md-none d-block">
+              <a class="navbar-brand" href="#">Aponk</a>
+              <button class="btn px-1 py-0 open-btn">
+                <i class="fal fa-stream"></i>
+              </button>
+            </div>
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Dashboard</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <script>
+      $(".sidebar ul li").on("click", function () {
+        $(".sidebar ul li.active").removeClass("active");
+        $(this).addClass("active");
+      });
+      $(".open-btn").on("click", function () {
+        $(".sidebar").addClass("active");
+      });
+      $(".close-btn").on("click", function () {
+        $(".sidebar").removeClass("active");
+      });
+    </script>
+  </body>
 </html>
