@@ -105,17 +105,17 @@
             <div class="box box1">
               <i class="uil uil-user-circle"></i>
               <span class="text">Petugas</span>
-              <span class="number">50,120</span>
+              <span class="number" id="petugas">0</span>
             </div>
             <div class="box box2">
               <i class="uil uil-user-circle"></i>
               <span class="text">Penduduk</span>
-              <span class="number">20,120</span>
+              <span class="number" id="penduduk">0</span>
             </div>
             <div class="box box3">
               <i class="uil uil-user-circle"></i>
               <span class="text">Pengunjung</span>
-              <span class="number">10,120</span>
+              <span class="number" id="pengunjung">0</span>
             </div>
           </div>
         </div>
@@ -129,31 +129,31 @@
           <div class="boxes1">
             <div class="box1 box11">
               <span class="text1">Laki-laki</span>
-              <span class="number1">50,120</span>
+              <span class="number1" id="laki">0</span>
             </div>
             <div class="box1 box21">
               <span class="text1">Perempuan</span>
-              <span class="number1">20,120</span>
+              <span class="number1" id="perempuan">0</span>
             </div>
             <div class="box1 box31">
               <span class="text1">Anak-anak</span>
-              <span class="number1">10,120</span>
+              <span class="number1" id="anak">0</span>
             </div>
             <div class="box1 box31">
               <span class="text1">Dewasa</span>
-              <span class="number1">10,120</span>
+              <span class="number1" id="dewasa">0</span>
             </div>
             <div class="box1 box31">
               <span class="text1">Lansia</span>
-              <span class="number1">10,120</span>
+              <span class="number1" id="lansia">0</span>
             </div>
             <div class="box1 box31">
               <span class="text1">WNI</span>
-              <span class="number1">10,120</span>
+              <span class="number1" id="wni">0</span>
             </div>
             <div class="box1 box31">
               <span class="text1">WNA</span>
-              <span class="number1">10,120</span>
+              <span class="number1" id="wna">0</span>
             </div>
           </div>
           <!--DATA TERBARU-->
@@ -237,7 +237,7 @@
         sidebar.classList.toggle("close");
       }
 
-      modeToggle.addEventListener("click", () => {
+      /*   modeToggle.addEventListener("click", () => {
         body.classList.toggle("dark");
         if (body.classList.contains("dark")) {
           localStorage.setItem("mode", "dark");
@@ -253,6 +253,187 @@
         } else {
           localStorage.setItem("status", "open");
         }
+      });*/
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <script id="MainScript">
+      var firebaseConfig = {
+        apiKey: "AIzaSyDMDphm6xCuGC7JQjcLwi4hU3Y5eSsX8jQ",
+        authDomain: "aponk-82561.firebaseapp.com",
+        databaseURL: "https://aponk-82561-default-rtdb.firebaseio.com",
+        projectId: "aponk-82561",
+        storageBucket: "aponk-82561.appspot.com",
+        messagingSenderId: "814528637046",
+        appId: "1:814528637046:web:a246200b62d4e800121757",
+        measurementId: "G-0NB8RSBWLV",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      var year;
+      const y = new Date();
+      y.getFullYear();
+      year = y.getFullYear();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      const m = new Date();
+      let month = months[m.getMonth()];
+
+      var day;
+      const d = new Date();
+      d.getDate();
+      if (d.getDate.length <= 2) {
+        day = "0" + d.getDate();
+      } else {
+        day = d.getDate();
+      }
+      console.log(month);
+
+      var ref1 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Petugas");
+      ref1.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("petugas").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref2 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Penduduk");
+      ref2.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("penduduk").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref3 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Pengunjung");
+      ref3.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("pengunjung").innerHTML =
+          snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref4 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Laki-laki");
+      ref4.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("laki").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref5 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Perempuan");
+      ref5.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("perempuan").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref6 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Anak-anak");
+      ref6.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("anak").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref7 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Dewasa");
+      ref7.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("dewasa").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref8 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Lansia");
+      ref8.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("lansia").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref9 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("WNI");
+      ref9.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("wni").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
+      var ref10 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("WNA");
+      ref10.once("value").then(function (snapshot) {
+        console.log(snapshot.numChildren());
+        document.getElementById("wna").innerHTML = snapshot.numChildren();
+        //console.log(day);
       });
     </script>
   </body>
