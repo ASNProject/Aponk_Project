@@ -8,7 +8,10 @@ body {
   height: 49px;
   width: 123px;
 }
-.container {
+:root {
+  --tran-05: all 0.5s ease;
+  --tran-03: all 0.3s ease;
+  --tran-03: all 0.2s ease;
 }
 .img_bawah {
   height: 420px;
@@ -99,6 +102,60 @@ hr.h-color {
   color: #fff;
 }
 
+.dashboard {
+  position: relative;
+  min-height: 100vh;
+  padding: 10px 14px;
+  transition: var(--tran-05);
+}
+.dashboard .dash-content {
+  padding-top: 50px;
+}
+.dash-content .boxes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dash-content .boxes .box {
+  align-items: center;
+  border-radius: 12px;
+  width: calc(100% / 2);
+  background-color: #001f3f;
+  transition: var(--tran-05);
+}
+.boxes .box i {
+  font-size: 35px;
+  color: #eee;
+}
+.boxes .box .text {
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: 500;
+  color: #eee;
+}
+
+.boxes .box .number {
+  font-size: 40px;
+  font-weight: 500;
+  color: #eee;
+}
+.boxes .box.box1 {
+  background-color: #001f3f;
+}
+.boxes .box.box2 {
+  background-color: #001f3f;
+}
+.boxes .box.box3 {
+  background-color: #001f3f;
+}
+.overflow {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+
 @media (max-width: 767px) {
   #side_nav {
     margin-left: -250px;
@@ -108,5 +165,17 @@ hr.h-color {
   }
   #side_nav.active {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .dash-content .boxes .box {
+    width: calc(100% / 2 -15px);
+    margin-top: 15px;
+  }
+}
+@media (max-width: 560px) {
+  .dash-content .boxes .box {
+    width: 100%;
   }
 }
