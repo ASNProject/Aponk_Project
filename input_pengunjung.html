@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style3.css" />
+
+    <!----===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!--<title>Responsive Regisration Form </title>-->
+  </head>
+  <body>
+    <div class="container">
+      <header>Masukkan data pengunjung</header>
+
+      <form action="#">
+        <div class="form first">
+          <div class="details personal">
+            <span class="title">Personal Data</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama" required />
+              </div>
+
+              <div class="input-field">
+                <label>Alamat</label>
+                <input type="text" placeholder="Masukkan alamat" required />
+              </div>
+
+              <div class="input-field">
+                <label>Instansi</label>
+                <select required>
+                  <option disabled selected>Pilih instansi</option>
+                  <option>TNI/POLRI</option>
+                  <option>PNS</option>
+                  <option>UMUM</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Nomor Identitas (KTP/SIM/PASPOR)</label>
+                <input
+                  type="number"
+                  placeholder="Masukkan no identitas"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Kewarganegaraan</label>
+                <select required>
+                  <option disabled selected>Pilih kewarganegaraan</option>
+                  <option>WNI</option>
+                  <option>WNA</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Jenis Kelamin</label>
+                <select required>
+                  <option disabled selected>Pilih jenis kelamin</option>
+                  <option>Laki-laki</option>
+                  <option>Perempuan</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Kelompok Usia</label>
+                <select required>
+                  <option disabled selected>Pilih kelompok usia</option>
+                  <option>Anak-anak</option>
+                  <option>Dewasa</option>
+                  <option>Lansia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="details ID">
+            <span class="title">Keperluan</span>
+
+            <div class="input-field">
+              <textarea id="message" rows="5" cols="40">
+ Tulis keperluan.</textarea
+              >
+            </div>
+
+            <div style="display: flex">
+              <button class="nextBtn">
+                <span class="btnText">Sumbit</span>
+                <i class="uil uil-navigator"></i>
+              </button>
+
+              <button class="nextBtn" style="margin-left: 20px">
+                <span class="btnText">Download</span>
+                <i class="uil uil-navigator"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--<script src="script.js"></script>-->
+  </body>
+</html>
