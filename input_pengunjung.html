@@ -25,7 +25,7 @@
   <body>
     <div class="container">
       <a href="dashboard.html" class="kembali" style="margin-bottom: 40px">
-        <i class="uil uil-navigator"></i>
+        <i class="uil uil-previous"></i>
         <span>Kembali</span>
       </a>
       <header>Masukkan data pengunjung</header>
@@ -58,6 +58,7 @@
                     type="text"
                     placeholder="Masukkan alamat"
                     required
+                    id="setalamat"
                     style="width: 100%"
                   />
                 </div>
@@ -66,7 +67,7 @@
                   <label>Instansi</label>
                 </div>
                 <div class="input-field">
-                  <select required style="width: 100%">
+                  <select required style="width: 100%" id="setinstansi">
                     <option disabled selected>Pilih instansi</option>
                     <option>TNI/POLRI</option>
                     <option>PNS</option>
@@ -82,6 +83,7 @@
                     type="number"
                     placeholder="Masukkan no identitas"
                     required
+                    id="setnoidentitas"
                     style="width: 100%"
                   />
                 </div>
@@ -90,7 +92,7 @@
                   <label>Kewarganegaraan</label>
                 </div>
                 <div class="input-field">
-                  <select required style="width: 100%">
+                  <select required style="width: 100%" id="setwarganegara">
                     <option disabled selected>Pilih kewarganegaraan</option>
                     <option>WNI</option>
                     <option>WNA</option>
@@ -101,7 +103,7 @@
                   <label>Jenis Kelamin</label>
                 </div>
                 <div class="input-field">
-                  <select required style="width: 100%">
+                  <select required style="width: 100%" id="setjeniskelamin">
                     <option disabled selected>Pilih jenis kelamin</option>
                     <option>Laki-laki</option>
                     <option>Perempuan</option>
@@ -113,7 +115,7 @@
                 </div>
 
                 <div class="input-field">
-                  <select required style="width: 100%">
+                  <select required style="width: 100%" id="setkelompokusia">
                     <option disabled selected>Pilih kelompok usia</option>
                     <option>Anak-anak</option>
                     <option>Dewasa</option>
@@ -127,14 +129,14 @@
               <span class="title">Keperluan</span>
 
               <div class="input-field" style="display: flex">
-                <textarea id="message" rows="5" cols="40">
+                <textarea id="setkeperluan" rows="5" cols="40">
 Tulis keperluan</textarea
                 >
               </div>
             </div>
           </div>
           <div style="display: flex">
-            <button class="nextBtn">
+            <button class="nextBtn" onclick="storeFirebase()">
               <span class="btnText">Sumbit</span>
               <i class="uil uil-navigator"></i>
             </button>
@@ -169,6 +171,157 @@ Tulis keperluan</textarea
       btn.addEventListener("click", () => {
         html2pdf().from(div).set(opt).save();
       });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <script id="MainScript">
+      var firebaseConfig = {
+        apiKey: "AIzaSyDMDphm6xCuGC7JQjcLwi4hU3Y5eSsX8jQ",
+        authDomain: "aponk-82561.firebaseapp.com",
+        databaseURL: "https://aponk-82561-default-rtdb.firebaseio.com",
+        projectId: "aponk-82561",
+        storageBucket: "aponk-82561.appspot.com",
+        messagingSenderId: "814528637046",
+        appId: "1:814528637046:web:a246200b62d4e800121757",
+        measurementId: "G-0NB8RSBWLV",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      var year;
+      const y = new Date();
+      y.getFullYear();
+      year = y.getFullYear();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      const m = new Date();
+      let month = months[m.getMonth()];
+
+      var day;
+      const d = new Date();
+      d.getDate();
+      if (d.getDate <= 10) {
+        day = "0" + d.getDate();
+      } else {
+        day = d.getDate();
+      }
+      console.log(month);
+
+      function storeFirebase() {
+        var nama = document.getElementById("setnama");
+        var alamat = document.getElementById("setalamat");
+        var instansi = document.getElementById("setinstansi");
+        var identitas = document.getElementById("setnoidentitas");
+        var warga = document.getElementById("setwarganegara");
+        var kelamin = document.getElementById("setjeniskelamin");
+        var kemopok = document.getElementById("setkelompokusia");
+        var keperluans = document.getElementById("setkeperluan");
+
+        firebase
+          .database()
+          .ref()
+          .child("DataHarian")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Pengunjung")
+          .child(identitas.value)
+          .child(nama.value)
+          .set(keperluans.value);
+
+        firebase
+          .database()
+          .ref()
+          .child("DataBulanan")
+          .child(year)
+          .child(month)
+          .child("Pengunjung")
+          .child(identitas.value)
+          .child(nama.value)
+          .set(keperluans.value);
+
+        firebase
+          .database()
+          .ref()
+          .child("DataTahunan")
+          .child(year)
+          .child("Pengunjung")
+          .child(identitas.value)
+          .child(nama.value)
+          .set(keperluans.value);
+
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("nama")
+          .set(nama.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("alamat")
+          .set(alamat.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("instansi")
+          .set(instansi.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("noidentitas")
+          .set(identitas.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("kewarganegaraan")
+          .set(warga.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("jeniskelamin")
+          .set(kelamin.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("kelompokusia")
+          .set(kemopok.value);
+        firebase
+          .database()
+          .ref()
+          .child("DataPengunjungWeb")
+          .child(identitas.value)
+          .child("keperluan")
+          .set(keperluans.value);
+      }
     </script>
   </body>
 </html>
