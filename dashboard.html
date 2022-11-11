@@ -248,6 +248,7 @@
       }
       console.log(month);
 
+      //GET DATA HARIAN
       var ref1 = firebase
         .database()
         .ref()
@@ -258,9 +259,30 @@
         .child("Petugas");
       ref1.once("value").then(function (snapshot) {
         console.log(snapshot.numChildren());
-        document.getElementById("petugas").innerHTML = snapshot.numChildren();
+        //document.getElementById("petugas").innerHTML = snapshot.numChildren();
         //console.log(day);
+        var petugasmasuk = snapshot.numChildren();
+
+        var ref1s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Petugas");
+        ref1s.once("value").then(function (snapshot) {
+          console.log(snapshot.numChildren());
+          // document.getElementById("petugas").innerHTML = snapshot.numChildren();
+          //console.log(day);
+          var petugaskeluar = snapshot.numChildren();
+
+          console.log(petugasmasuk - petugaskeluar);
+          document.getElementById("petugas").innerHTML =
+            petugasmasuk - petugaskeluar;
+        });
       });
+
       var ref2 = firebase
         .database()
         .ref()
@@ -270,10 +292,24 @@
         .child(day)
         .child("Penduduk");
       ref2.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("penduduk").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var pendudukmasuk = snapshot.numChildren();
+        var ref2s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Penduduk");
+        ref2s.once("value").then(function (snapshot) {
+          var pendudukkeluar = snapshot.numChildren();
+          //console.log(snapshot.numChildren());
+          document.getElementById("penduduk").innerHTML =
+            pendudukmasuk - pendudukkeluar;
+          //console.log(day);
+        });
       });
+
       var ref3 = firebase
         .database()
         .ref()
@@ -283,10 +319,23 @@
         .child(day)
         .child("Pengunjung");
       ref3.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("pengunjung").innerHTML =
-          snapshot.numChildren();
-        //console.log(day);
+        var pengunjungmasuk = snapshot.numChildren();
+        var ref3s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Pengunjung");
+        ref3s.once("value").then(function (snapshot) {
+          var pengunjungkeluar = snapshot.numChildren();
+          //console.log(snapshot.numChildren());
+          document.getElementById("pengunjung").innerHTML =
+            pengunjungmasuk - pengunjungkeluar;
+          //  snapshot.numChildren();
+          //console.log(day);
+        });
       });
       var ref4 = firebase
         .database()
@@ -297,9 +346,22 @@
         .child(day)
         .child("Laki-laki");
       ref4.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("laki").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var lakilakimasuk = snapshot.numChildren();
+        var ref4s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Laki-laki");
+        ref4s.once("value").then(function (snapshot) {
+          var lakilakikeluar = snapshot.numChildren();
+          //console.log(snapshot.numChildren());
+          document.getElementById("laki").innerHTML =
+            lakilakimasuk - lakilakikeluar;
+          //console.log(day);
+        });
       });
       var ref5 = firebase
         .database()
@@ -310,9 +372,23 @@
         .child(day)
         .child("Perempuan");
       ref5.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("perempuan").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var perempuanmasuk = snapshot.numChildren();
+        var ref5s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Perempuan");
+        ref5s.once("value").then(function (snapshot) {
+          var perempuankeluar = snapshot.numChildren();
+          document.getElementById("perempuan").innerHTML =
+            perempuanmasuk - perempuankeluar;
+          //console.log(snapshot.numChildren());
+          //document.getElementById("perempuan").innerHTML = snapshot.numChildren();
+          //console.log(day);
+        });
       });
       var ref6 = firebase
         .database()
@@ -323,9 +399,22 @@
         .child(day)
         .child("Anak-anak");
       ref6.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("anak").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var anakanakmasuk = snapshot.numChildren();
+        var ref6s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Anak-anak");
+        ref6s.once("value").then(function (snapshot) {
+          var anakanakkeluar = snapshot.numChildren();
+          // console.log(snapshot.numChildren());
+          document.getElementById("anak").innerHTML =
+            anakanakmasuk - anakanakkeluar;
+          //console.log(day);
+        });
       });
       var ref7 = firebase
         .database()
@@ -336,9 +425,22 @@
         .child(day)
         .child("Dewasa");
       ref7.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("dewasa").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var dewasamasuk = snapshot.numChildren();
+        var ref7s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Dewasa");
+        ref7s.once("value").then(function (snapshot) {
+          var dewasakeluar = snapshot.numChildren();
+          // console.log(snapshot.numChildren());
+          document.getElementById("dewasa").innerHTML =
+            dewasamasuk - dewasakeluar;
+          //console.log(day);
+        });
       });
       var ref8 = firebase
         .database()
@@ -349,9 +451,22 @@
         .child(day)
         .child("Lansia");
       ref8.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("lansia").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var lansiamasuk = snapshot.numChildren();
+        var ref8s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Lansia");
+        ref8s.once("value").then(function (snapshot) {
+          var lansiakeluar = snapshot.numChildren();
+          //console.log(snapshot.numChildren());
+          document.getElementById("lansia").innerHTML =
+            lansiamasuk - lansiakeluar;
+          //console.log(day);
+        });
       });
       var ref9 = firebase
         .database()
@@ -362,9 +477,21 @@
         .child(day)
         .child("WNI");
       ref9.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("wni").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var wnimasuk = snapshot.numChildren();
+        var ref9s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("WNI");
+        ref9s.once("value").then(function (snapshot) {
+          var wnikeluar = snapshot.numChildren();
+          // console.log(snapshot.numChildren());
+          document.getElementById("wni").innerHTML = wnimasuk - wnikeluar;
+          //console.log(day);
+        });
       });
       var ref10 = firebase
         .database()
@@ -375,9 +502,21 @@
         .child(day)
         .child("WNA");
       ref10.once("value").then(function (snapshot) {
-        console.log(snapshot.numChildren());
-        document.getElementById("wna").innerHTML = snapshot.numChildren();
-        //console.log(day);
+        var wnamasuk = snapshot.numChildren();
+        var ref10s = firebase
+          .database()
+          .ref()
+          .child("DataKeluar")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("WNA");
+        ref10s.once("value").then(function (snapshot) {
+          var wnakeluar = snapshot.numChildren();
+          // console.log(snapshot.numChildren());
+          document.getElementById("wna").innerHTML = wnamasuk - wnakeluar;
+          //console.log(day);
+        });
       });
     </script>
   </body>
