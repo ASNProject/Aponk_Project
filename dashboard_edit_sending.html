@@ -104,7 +104,7 @@
       <div class="overview">
         <div class="title">
           <i class="uil uil-tachometer-fast-alt"></i>
-          <span class="text">Dashboard</span>
+          <span class="text">Dashboard Edit Sending</span>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113236.12941828853!2d108.86686015880048!3d-7.719147534403542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650c8fdb6518f7%3A0x2d327c00e4bbe57a!2sPulau%20Nusa%20Kambangan!5e0!3m2!1sid!2sid!4v1667478454231!5m2!1sid!2sid"
@@ -260,37 +260,61 @@
     }
     console.log(month);
 
-    let ref_tap_rfid = firebase
-      .database().ref()
-      .child("tapping_kartu");
-    ref_tap_rfid.on("value", (snapshot) => {
-      tap_rfid = snapshot.val();
-      console.log(tap_rfid);
-      //parseInt(tap_rfid);   
-      $(function () {
-        toastr.options = {
-          "closeButton": false,
-          "debug": false,
-          "newestOnTop": true,
-          "progressBar": true,
-          "positionClass": "toast-top-right",
-          "preventDuplicates": false,
-          "onclick": null,
-          "showDuration": "300",
-          "hideDuration": "1000",
-          "timeOut": "5000",
-          "extendedTimeOut": "1000",
-          "showEasing": "swing",
-          "hideEasing": "linear",
-          "showMethod": "show",
-          "hideMethod": "hide"
-        }
-        var notif_time = d.toLocaleString();
-        if (tap_rfid == "1") toastr.success(notif_time, 'Data Masuk')
-        if (tap_rfid == "2") toastr.success(notif_time, 'Data Keluar')
-        //document.getElementById("pengunjung").innerHTML = tap_rfid;
+    var total_data_masuk = firebase
+      .database()
+      .ref()
+      .child("total_data_masuk");
+    total_data_masuk.once("value").then(function (snapshot) {
+      //console.log(snapshot.numChildren());
+      //document.getElementById("petugas").innerHTML = snapshot.numChildren();
+      //console.log(day);
+    });
+
+    //db.ref('/total_data_masuk').orderByKey().limitToFirst(random).once('value').then(users => Object.keys(users)[random]);
+    var uid, rfid_status;
+    var refx = firebase.database().ref('/total_data_masuk');
+    refx.limitToLast(1).on('value', function (snapshot) {
+      snapshot.forEach(function (element) {
+        $(function () {
+          console.log(element.val());
+          var data_random = element.key;
+          console.log(data_random);
+          var get_uid = firebase.database().ref("/total_data_masuk/" + data_random + "/user_id");
+          get_uid.on('value', (snap) => {
+            uid = snap.val();
+            console.log(uid);
+            document.getElementById("petugas").innerHTML = uid;
+          });
+          var get_rfid_status = firebase.database().ref("/total_data_masuk/" + data_random + "/rfid_status");
+          get_rfid_status.on('value', (snap) => {
+            rfid_status = snap.val();
+            console.log(rfid_status);
+            document.getElementById("penduduk").innerHTML = rfid_status;
+          });
+          let ref_tap_rfid = firebase
+            .database().ref()
+            .child("tapping_kartu");
+          ref_tap_rfid.on("value", (snapshot) => {
+            tap_rfid = snapshot.val();
+            toastr.options = {
+              "closeButton": false,
+              "newestOnTop": true,
+              "positionClass": "toast-top-right",
+              "preventDuplicates": true
+            }
+            var notif_time = d.toLocaleString();
+            if (tap_rfid == "1") toastr.success('DATA MASUK', uid);
+            // if (tap_rfid == "2") toastr.success('DATA KELUAR', uid)
+            //document.getElementById("pengunjung").innerHTML = tap_rfid;
+            //console.log(tap_rfid);
+            //parseInt(tap_rfid);       
+          });
+        });
       });
     });
+
+    // console.log(uid);
+    // document.getElementById("petugas").innerHTML = uid;
 
     //GET DATA HARIAN
     var ref1 = firebase
@@ -386,6 +410,18 @@
     $(document).ready(
       function () {
         setInterval(function () {
+          /*
+          var total_data_masuk = firebase
+            .database()
+            .ref()
+            .child("total_data_masuk");
+          total_data_masuk.once("value").then(function (snapshot) {
+            console.log(snapshot.numChildren());
+            document.getElementById("petugas").innerHTML = snapshot.numChildren();
+            //console.log(day);
+          });
+          */
+          /*
           ref1.once("value").then(function (snapshot) {
             console.log(snapshot.numChildren());
             //document.getElementById("petugas").innerHTML = snapshot.numChildren();
@@ -582,17 +618,7 @@
               //console.log(day);
             });
           });
-
-          // $('#petugas').text(data_petugas);
-          // $('#penduduk').text(data_penduduk);
-          // // $('#pengunjung').text(data_pengunjung);
-          // $('#laki').text(data_laki);
-          // $('#perempuan').text(data_perempuan);
-          // $('#anak').text(data_anak);
-          // $('#lansia').text(data_lansia);
-          // $('#dewasa').text(data_dewasa);
-          // $('#wni').text(data_wni);
-          // $('#wna').text(data_wna);
+          */
         }, 1000);
       });
   </script>
