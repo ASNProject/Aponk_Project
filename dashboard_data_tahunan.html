@@ -337,7 +337,6 @@
       .ref()
       .child("DataTahunan")
       .child(year)
-      .child(day)
       .child("WNI");
 
     var ref10 = firebase
@@ -388,7 +387,7 @@
           });
           ref10.once("value").then(function (snapshot) {
             data_wna = snapshot.numChildren();
-            document.getElementById("wni").innerHTML = snapshot.numChildren();
+            document.getElementById("wna").innerHTML = snapshot.numChildren();
           });
 
           var tahun_ini = year;
