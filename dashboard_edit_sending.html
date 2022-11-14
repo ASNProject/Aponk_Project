@@ -271,50 +271,75 @@
     });
 
     //db.ref('/total_data_masuk').orderByKey().limitToFirst(random).once('value').then(users => Object.keys(users)[random]);
-    var uid, rfid_status;
-    var refx = firebase.database().ref('/total_data_masuk');
-    refx.limitToLast(1).on('value', function (snapshot) {
-      snapshot.forEach(function (element) {
-        $(function () {
-          console.log(element.val());
-          var data_random = element.key;
-          console.log(data_random);
-          var get_uid = firebase.database().ref("/total_data_masuk/" + data_random + "/user_id");
-          get_uid.on('value', (snap) => {
-            uid = snap.val();
-            console.log(uid);
-            document.getElementById("petugas").innerHTML = uid;
-          });
-          var get_rfid_status = firebase.database().ref("/total_data_masuk/" + data_random + "/rfid_status");
-          get_rfid_status.on('value', (snap) => {
-            rfid_status = snap.val();
-            console.log(rfid_status);
-            document.getElementById("penduduk").innerHTML = rfid_status;
-          });
-          let ref_tap_rfid = firebase
-            .database().ref()
-            .child("tapping_kartu");
-          ref_tap_rfid.on("value", (snapshot) => {
-            tap_rfid = snapshot.val();
-            toastr.options = {
-              "closeButton": false,
-              "newestOnTop": true,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": true
-            }
-            var notif_time = d.toLocaleString();
-            if (tap_rfid == "1") toastr.success('DATA MASUK', uid);
-            // if (tap_rfid == "2") toastr.success('DATA KELUAR', uid)
-            //document.getElementById("pengunjung").innerHTML = tap_rfid;
-            //console.log(tap_rfid);
-            //parseInt(tap_rfid);       
-          });
-        });
-      });
-    });
+    // var uid, rfid_status;
+    // var refx = firebase.database().ref('/total_data_masuk');
+    // refx.limitToLast(1).on('value', function (snapshot) {
+    //   snapshot.forEach(function (element) {
+    //     $(function () {
+    //       console.log(element.val());
+    //       var data_random = element.key;
+    //       console.log(data_random);
+    //       var get_uid = firebase.database().ref("/total_data_masuk/" + data_random + "/user_id");
+    //       get_uid.on('value', (snap) => {
+    //         uid = snap.val();
+    //         console.log(uid);
+    //         document.getElementById("petugas").innerHTML = uid;
+    //       });
+    //       var get_rfid_status = firebase.database().ref("/total_data_masuk/" + data_random + "/rfid_status");
+    //       get_rfid_status.on('value', (snap) => {
+    //         rfid_status = snap.val();
+    //         console.log(rfid_status);
+    //         document.getElementById("penduduk").innerHTML = rfid_status;
+    //       });
+    //       let ref_tap_rfid = firebase
+    //         .database().ref()
+    //         .child("tapping_kartu");
+    //       ref_tap_rfid.on("value", (snapshot) => {
+    //         tap_rfid = snapshot.val();
+    //         toastr.options = {
+    //           "closeButton": false,
+    //           "newestOnTop": true,
+    //           "positionClass": "toast-top-right",
+    //           "preventDuplicates": true
+    //         }
+    //         var notif_time = d.toLocaleString();
+    //         if (tap_rfid == "1") toastr.success('DATA MASUK', uid);
+    //         // if (tap_rfid == "2") toastr.success('DATA KELUAR', uid)
+    //         //document.getElementById("pengunjung").innerHTML = tap_rfid;
+    //         //console.log(tap_rfid);
+    //         //parseInt(tap_rfid);       
+    //       });
+    //     });
+    //   });
+    // });
 
     // console.log(uid);
     // document.getElementById("petugas").innerHTML = uid;
+
+    var data_uid = firebase.database().ref("/temp_uid");
+    data_uid.on('value', (snap) => {
+      var uid_temp_data = snap.val();
+      console.log(uid_temp_data);
+      var get_petugas = firebase.database().ref("/Users/Petugas/" + uid_temp_data + "/kelas");
+      get_petugas.on('value', (snap) => {
+        var get_petugas_data = snap.val();
+        console.log(get_petugas_data);
+        var send_petugas_data = firebase
+          .database()
+          .ref()
+          .child("DataHarian")
+          .child(year)
+          .child(month)
+          .child(day)
+          .child("Petugas")
+          .push({
+            uid: uid_temp_data,
+            tanggal: day + '-' + month + '-' + year,
+            waktu: new Date().toLocaleTimeString('en-US', { hour12: false })
+          });
+      })
+    });
+
 
     //GET DATA HARIAN
     var ref1 = firebase

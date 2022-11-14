@@ -22,51 +22,34 @@
     <div class="logo-name">
       <span class="logo_name">Aponk</span>
     </div>
-
     <div class="menu-items">
       <ul class="nav-links">
+
         <li>
-          <a href="#">
-            <i class="uil uil-user-md"></i>
-            <span class="link-name">Petugas</span>
+          <a href="dashboard_data_live.html">
+            <i class="uil uil-clock"></i>
+            <span class="link-name">LIVE DATA</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="uil uil-users-alt"></i>
-            <span class="link-name">Penduduk</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil uil-user-arrows"></i>
-            <span class="link-name">Pengunjung</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil uil-cloud-computing"></i>
-            <span class="link-name">Rekapan Data</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil"></i>
+          <a href="dashboard_data_harian.html">
+            <i class="uil uil-analytics"></i>
             <span class="link-name">Harian</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="uil"></i>
+          <a href="dashboard_data_bulanan.html">
+            <i class="uil uil-analytics"></i>
             <span class="link-name">Bulanan</span>
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="uil"></i>
+          <a href="dashboard_data_tahunan.html">
+            <i class="uil uil-analytics"></i>
             <span class="link-name">Tahunan</span>
           </a>
         </li>
+
       </ul>
 
       <ul class="logout-mode">
@@ -78,18 +61,22 @@
             </a>
           </li>
           <li>
+            <a href="input_rfid_petugas.html" id="hireBtn">
+              <i class="uil uil-credit-card"></i>
+              <span class="link-name">Input Petugas</span>
+            </a>
+          </li>
+          <li>
             <a href="#">
               <i class="uil uil-signout"></i>
               <span class="link-name">Logout</span>
             </a>
           </li>
-
           <li class="mode">
             <a href="#">
               <i class="uil uil-moon"></i>
               <span class="link-name">Dark Mode</span>
             </a>
-
             <div class="mode-toggle">
               <span class="switch"></span>
             </div>
@@ -99,12 +86,14 @@
     </div>
   </nav>
 
-  <section class="dashboard">
+  
+  <section class="dashboard">        
     <div class="dash-content">
-      <div class="overview">
+      <div class="overview">        
         <div class="title">
-          <i class="uil uil-tachometer-fast-alt"></i>
-          <span class="text">Dashboard</span>
+          <i class="uil uil uil-clock-three"></i>
+          <span class="text">DATA LIVE</span>  
+          <span class="text" id="dashboard"></span>  
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113236.12941828853!2d108.86686015880048!3d-7.719147534403542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650c8fdb6518f7%3A0x2d327c00e4bbe57a!2sPulau%20Nusa%20Kambangan!5e0!3m2!1sid!2sid!4v1667478454231!5m2!1sid!2sid"
@@ -131,7 +120,7 @@
 
       <div class="activity">
         <div class="title" style="margin-top: 20px; margin-bottom: 20px">
-          <i class="uil uil-clock-three"></i>
+          <i class="uil-tachometer-fast-alt"></i>          
           <span class="text">Data Lainnya</span>
         </div>
 
@@ -211,7 +200,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -258,14 +247,14 @@
     } else {
       day = d.getDate();
     }
-    console.log(month);
+    //console.log(month);
 
     let ref_tap_rfid = firebase
       .database().ref()
       .child("tapping_kartu");
     ref_tap_rfid.on("value", (snapshot) => {
       tap_rfid = snapshot.val();
-      console.log(tap_rfid);
+      //console.log(tap_rfid);
       //parseInt(tap_rfid);   
       $(function () {
         toastr.options = {
@@ -387,7 +376,7 @@
       function () {
         setInterval(function () {
           ref1.once("value").then(function (snapshot) {
-            console.log(snapshot.numChildren());
+            //console.log(snapshot.numChildren());
             //document.getElementById("petugas").innerHTML = snapshot.numChildren();
             //console.log(day);
             var petugasmasuk = snapshot.numChildren();
@@ -401,12 +390,12 @@
               .child(day)
               .child("Petugas");
             ref1s.once("value").then(function (snapshot) {
-              console.log(snapshot.numChildren());
+              // console.log(snapshot.numChildren());
               // document.getElementById("petugas").innerHTML = snapshot.numChildren();
               //console.log(day);
               var petugaskeluar = snapshot.numChildren();
 
-              console.log(petugasmasuk - petugaskeluar);
+              //console.log(petugasmasuk - petugaskeluar);
               document.getElementById("petugas").innerHTML =
                 petugasmasuk - petugaskeluar;
             });
@@ -424,7 +413,7 @@
               .child("Penduduk");
             ref2s.once("value").then(function (snapshot) {
               var pendudukkeluar = snapshot.numChildren();
-              //console.log(snapshot.numChildren());
+              // console.log(snapshot.numChildren());
               document.getElementById("penduduk").innerHTML =
                 pendudukmasuk - pendudukkeluar;
               //console.log(day);
@@ -582,6 +571,25 @@
               //console.log(day);
             });
           });
+
+          var tanggalan = new Date();
+
+          var day_x = tanggalan.getDate();
+          var month_x = tanggalan.getMonth() + 1;
+          var year_x = tanggalan.getFullYear();
+          var hour_x = tanggalan.getHours();
+          var minute_x = tanggalan.getMinutes();
+          var second_x = tanggalan.getSeconds();
+
+          if (day_x.toString().length < 2) day_x = '0' + day_x;
+          if (month_x.toString().length < 2) month_x = '0' + month_x;
+          if (hour_x.toString().length < 2) hour_x = '0' + hour_x;
+          if (minute_x.toString().length < 2) minute_x = '0' + minute_x;
+          if (second_x.toString().length < 2) second_x = '0' + second_x;
+
+          var date_time_x = ("  :  " + day + "-" + month + "-" + year + " | " + hour_x + ":" + minute_x + ":" + second_x);
+          
+          document.getElementById("dashboard").innerHTML = date_time_x;
 
           // $('#petugas').text(data_petugas);
           // $('#penduduk').text(data_penduduk);

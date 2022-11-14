@@ -131,7 +131,8 @@ nav .menu-items {
   background-color: white;
 }
 body.dark li a:hover:before {
-  background-color: var(--text-color);
+  background-color: var(--
+  -color);
 }
 .menu-items li a i {
   font-size: 24px;
