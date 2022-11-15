@@ -1,192 +1,191 @@
 <!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style2.css" />
 
-  <!----======== CSS ======== -->
-  <link rel="stylesheet" href="style2.css" />
+    <!----===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-  <!----===== Iconscout CSS ===== -->
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+    <!--<title>Admin Dashboard Panel</title>-->
+  </head>
 
-  <!--<title>Admin Dashboard Panel</title>-->
-</head>
+  <body>
+    <nav>
+      <div class="logo-name">
+        <span class="logo_name">Aponk</span>
+      </div>
 
-<body>
-  <nav>
-    <div class="logo-name">
-      <span class="logo_name">Aponk</span>
-    </div>
-
-    <div class="menu-items">
-      <ul class="nav-links">
-        <li>
-          <a href="#">
-            <i class="uil uil-user-md"></i>
-            <span class="link-name">Petugas</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil uil-users-alt"></i>
-            <span class="link-name">Penduduk</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil uil-user-arrows"></i>
-            <span class="link-name">Pengunjung</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil uil-cloud-computing"></i>
-            <span class="link-name">Rekapan Data</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil"></i>
-            <span class="link-name">Harian</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil"></i>
-            <span class="link-name">Bulanan</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="uil"></i>
-            <span class="link-name">Tahunan</span>
-          </a>
-        </li>
-      </ul>
-
-      <ul class="logout-mode">
+      <div class="menu-items">
         <ul class="nav-links">
           <li>
-            <a href="input_pengunjung.html" id="hireBtn">
-              <i class="uil uil-share"></i>
-              <span class="link-name">Input Data</span>
+            <a href="#">
+              <i class="uil uil-user-md"></i>
+              <span class="link-name">Petugas</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="uil uil-signout"></i>
-              <span class="link-name">Logout</span>
+              <i class="uil uil-users-alt"></i>
+              <span class="link-name">Penduduk</span>
             </a>
           </li>
-
-          <li class="mode">
+          <li>
             <a href="#">
-              <i class="uil uil-moon"></i>
-              <span class="link-name">Dark Mode</span>
+              <i class="uil uil-user-arrows"></i>
+              <span class="link-name">Pengunjung</span>
             </a>
-
-            <div class="mode-toggle">
-              <span class="switch"></span>
-            </div>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-cloud-computing"></i>
+              <span class="link-name">Rekapan Data</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil"></i>
+              <span class="link-name">Harian</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil"></i>
+              <span class="link-name">Bulanan</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil"></i>
+              <span class="link-name">Tahunan</span>
+            </a>
           </li>
         </ul>
-      </ul>
-    </div>
-  </nav>
 
-  <section class="dashboard">
-    <div class="dash-content">
-      <div class="overview">
-        <div class="title">
-          <i class="uil uil-tachometer-fast-alt"></i>
-          <span class="text">Dashboard Edit Sending</span>
+        <ul class="logout-mode">
+          <ul class="nav-links">
+            <li>
+              <a href="input_pengunjung.html" id="hireBtn">
+                <i class="uil uil-share"></i>
+                <span class="link-name">Input Data</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html">
+                <i class="uil uil-signout"></i>
+                <span class="link-name">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+      <div class="dash-content">
+        <div class="overview">
+          <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Dashboard Edit Sending</span>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113236.12941828853!2d108.86686015880048!3d-7.719147534403542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650c8fdb6518f7%3A0x2d327c00e4bbe57a!2sPulau%20Nusa%20Kambangan!5e0!3m2!1sid!2sid!4v1667478454231!5m2!1sid!2sid"
+            width="100%"
+            height="250"
+            style="border: 0; border-radius: 10; margin-bottom: 10px"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="boxes">
+            <div class="box box1">
+              <i class="uil uil-user-circle"></i>
+              <span class="text">Petugas</span>
+              <span class="number" id="petugas">0</span>
+            </div>
+            <div class="box box2">
+              <i class="uil uil-user-circle"></i>
+              <span class="text">Penduduk</span>
+              <span class="number" id="penduduk">0</span>
+            </div>
+            <div class="box box3">
+              <i class="uil uil-user-circle"></i>
+              <span class="text">Pengunjung</span>
+              <span class="number" id="pengunjung">0</span>
+            </div>
+          </div>
         </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113236.12941828853!2d108.86686015880048!3d-7.719147534403542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650c8fdb6518f7%3A0x2d327c00e4bbe57a!2sPulau%20Nusa%20Kambangan!5e0!3m2!1sid!2sid!4v1667478454231!5m2!1sid!2sid"
-          width="100%" height="250" style="border: 0; border-radius: 10; margin-bottom: 10px" allowfullscreen=""
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="boxes">
-          <div class="box box1">
-            <i class="uil uil-user-circle"></i>
-            <span class="text">Petugas</span>
-            <span class="number" id="petugas">0</span>
+
+        <div class="activity">
+          <div class="title" style="margin-top: 20px; margin-bottom: 20px">
+            <i class="uil uil-clock-three"></i>
+            <span class="text">Data Lainnya</span>
           </div>
-          <div class="box box2">
-            <i class="uil uil-user-circle"></i>
-            <span class="text">Penduduk</span>
-            <span class="number" id="penduduk">0</span>
-          </div>
-          <div class="box box3">
-            <i class="uil uil-user-circle"></i>
-            <span class="text">Pengunjung</span>
-            <span class="number" id="pengunjung">0</span>
+
+          <div class="boxes1">
+            <div class="box1 box11">
+              <span class="text1">Laki-laki</span>
+              <span class="number1" id="laki">0</span>
+            </div>
+            <div class="box1 box21">
+              <span class="text1">Perempuan</span>
+              <span class="number1" id="perempuan">0</span>
+            </div>
+            <div class="box1 box31">
+              <span class="text1">Anak-anak</span>
+              <span class="number1" id="anak">0</span>
+            </div>
+            <div class="box1 box31">
+              <span class="text1">Dewasa</span>
+              <span class="number1" id="dewasa">0</span>
+            </div>
+            <div class="box1 box31">
+              <span class="text1">Lansia</span>
+              <span class="number1" id="lansia">0</span>
+            </div>
+            <div class="box1 box31">
+              <span class="text1">WNI</span>
+              <span class="number1" id="wni">0</span>
+            </div>
+            <div class="box1 box31">
+              <span class="text1">WNA</span>
+              <span class="number1" id="wna">0</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="activity">
-        <div class="title" style="margin-top: 20px; margin-bottom: 20px">
-          <i class="uil uil-clock-three"></i>
-          <span class="text">Data Lainnya</span>
-        </div>
+    <!--<script src="script.js"></script>-->
+    <script>
+      const body = document.querySelector("body"),
+        modeToggle = body.querySelector(".mode-toggle");
+      sidebar = body.querySelector("nav");
+      sidebarToggle = body.querySelector(".sidebar-toggle");
 
-        <div class="boxes1">
-          <div class="box1 box11">
-            <span class="text1">Laki-laki</span>
-            <span class="number1" id="laki">0</span>
-          </div>
-          <div class="box1 box21">
-            <span class="text1">Perempuan</span>
-            <span class="number1" id="perempuan">0</span>
-          </div>
-          <div class="box1 box31">
-            <span class="text1">Anak-anak</span>
-            <span class="number1" id="anak">0</span>
-          </div>
-          <div class="box1 box31">
-            <span class="text1">Dewasa</span>
-            <span class="number1" id="dewasa">0</span>
-          </div>
-          <div class="box1 box31">
-            <span class="text1">Lansia</span>
-            <span class="number1" id="lansia">0</span>
-          </div>
-          <div class="box1 box31">
-            <span class="text1">WNI</span>
-            <span class="number1" id="wni">0</span>
-          </div>
-          <div class="box1 box31">
-            <span class="text1">WNA</span>
-            <span class="number1" id="wna">0</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      let getMode = localStorage.getItem("mode");
+      if (getMode && getMode === "dark") {
+        body.classList.toggle("dark");
+      }
 
-  <!--<script src="script.js"></script>-->
-  <script>
-    const body = document.querySelector("body"),
-      modeToggle = body.querySelector(".mode-toggle");
-    sidebar = body.querySelector("nav");
-    sidebarToggle = body.querySelector(".sidebar-toggle");
+      let getStatus = localStorage.getItem("status");
+      if (getStatus && getStatus === "close") {
+        sidebar.classList.toggle("close");
+      }
 
-    let getMode = localStorage.getItem("mode");
-    if (getMode && getMode === "dark") {
-      body.classList.toggle("dark");
-    }
-
-    let getStatus = localStorage.getItem("status");
-    if (getStatus && getStatus === "close") {
-      sidebar.classList.toggle("close");
-    }
-
-    /*   modeToggle.addEventListener("click", () => {
+      /*   modeToggle.addEventListener("click", () => {
       body.classList.toggle("dark");
       if (body.classList.contains("dark")) {
         localStorage.setItem("mode", "dark");
@@ -203,237 +202,240 @@
         localStorage.setItem("status", "open");
       }
     });*/
-  </script>
+    </script>
 
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-  <script id="MainScript">
-    var firebaseConfig = {
-      apiKey: "AIzaSyDMDphm6xCuGC7JQjcLwi4hU3Y5eSsX8jQ",
-      authDomain: "aponk-82561.firebaseapp.com",
-      databaseURL: "https://aponk-82561-default-rtdb.firebaseio.com",
-      projectId: "aponk-82561",
-      storageBucket: "aponk-82561.appspot.com",
-      messagingSenderId: "814528637046",
-      appId: "1:814528637046:web:a246200b62d4e800121757",
-      measurementId: "G-0NB8RSBWLV",
-    };
-    firebase.initializeApp(firebaseConfig);
+    <script id="MainScript">
+      var firebaseConfig = {
+        apiKey: "AIzaSyDMDphm6xCuGC7JQjcLwi4hU3Y5eSsX8jQ",
+        authDomain: "aponk-82561.firebaseapp.com",
+        databaseURL: "https://aponk-82561-default-rtdb.firebaseio.com",
+        projectId: "aponk-82561",
+        storageBucket: "aponk-82561.appspot.com",
+        messagingSenderId: "814528637046",
+        appId: "1:814528637046:web:a246200b62d4e800121757",
+        measurementId: "G-0NB8RSBWLV",
+      };
+      firebase.initializeApp(firebaseConfig);
 
-    var year;
-    const y = new Date();
-    y.getFullYear();
-    year = y.getFullYear();
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
+      var year;
+      const y = new Date();
+      y.getFullYear();
+      year = y.getFullYear();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
 
-    const m = new Date();
-    let month = months[m.getMonth()];
+      const m = new Date();
+      let month = months[m.getMonth()];
 
-    var day;
-    const d = new Date();
-    d.getDate();
-    if (d.getDate <= 10) {
-      day = "0" + d.getDate();
-    } else {
-      day = d.getDate();
-    }
-    console.log(month);
+      var day;
+      const d = new Date();
+      d.getDate();
+      if (d.getDate <= 10) {
+        day = "0" + d.getDate();
+      } else {
+        day = d.getDate();
+      }
+      console.log(month);
 
-    var total_data_masuk = firebase
-      .database()
-      .ref()
-      .child("total_data_masuk");
-    total_data_masuk.once("value").then(function (snapshot) {
-      //console.log(snapshot.numChildren());
-      //document.getElementById("petugas").innerHTML = snapshot.numChildren();
-      //console.log(day);
-    });
+      var total_data_masuk = firebase
+        .database()
+        .ref()
+        .child("total_data_masuk");
+      total_data_masuk.once("value").then(function (snapshot) {
+        //console.log(snapshot.numChildren());
+        //document.getElementById("petugas").innerHTML = snapshot.numChildren();
+        //console.log(day);
+      });
 
-    //db.ref('/total_data_masuk').orderByKey().limitToFirst(random).once('value').then(users => Object.keys(users)[random]);
-    // var uid, rfid_status;
-    // var refx = firebase.database().ref('/total_data_masuk');
-    // refx.limitToLast(1).on('value', function (snapshot) {
-    //   snapshot.forEach(function (element) {
-    //     $(function () {
-    //       console.log(element.val());
-    //       var data_random = element.key;
-    //       console.log(data_random);
-    //       var get_uid = firebase.database().ref("/total_data_masuk/" + data_random + "/user_id");
-    //       get_uid.on('value', (snap) => {
-    //         uid = snap.val();
-    //         console.log(uid);
-    //         document.getElementById("petugas").innerHTML = uid;
-    //       });
-    //       var get_rfid_status = firebase.database().ref("/total_data_masuk/" + data_random + "/rfid_status");
-    //       get_rfid_status.on('value', (snap) => {
-    //         rfid_status = snap.val();
-    //         console.log(rfid_status);
-    //         document.getElementById("penduduk").innerHTML = rfid_status;
-    //       });
-    //       let ref_tap_rfid = firebase
-    //         .database().ref()
-    //         .child("tapping_kartu");
-    //       ref_tap_rfid.on("value", (snapshot) => {
-    //         tap_rfid = snapshot.val();
-    //         toastr.options = {
-    //           "closeButton": false,
-    //           "newestOnTop": true,
-    //           "positionClass": "toast-top-right",
-    //           "preventDuplicates": true
-    //         }
-    //         var notif_time = d.toLocaleString();
-    //         if (tap_rfid == "1") toastr.success('DATA MASUK', uid);
-    //         // if (tap_rfid == "2") toastr.success('DATA KELUAR', uid)
-    //         //document.getElementById("pengunjung").innerHTML = tap_rfid;
-    //         //console.log(tap_rfid);
-    //         //parseInt(tap_rfid);       
-    //       });
-    //     });
-    //   });
-    // });
+      //db.ref('/total_data_masuk').orderByKey().limitToFirst(random).once('value').then(users => Object.keys(users)[random]);
+      // var uid, rfid_status;
+      // var refx = firebase.database().ref('/total_data_masuk');
+      // refx.limitToLast(1).on('value', function (snapshot) {
+      //   snapshot.forEach(function (element) {
+      //     $(function () {
+      //       console.log(element.val());
+      //       var data_random = element.key;
+      //       console.log(data_random);
+      //       var get_uid = firebase.database().ref("/total_data_masuk/" + data_random + "/user_id");
+      //       get_uid.on('value', (snap) => {
+      //         uid = snap.val();
+      //         console.log(uid);
+      //         document.getElementById("petugas").innerHTML = uid;
+      //       });
+      //       var get_rfid_status = firebase.database().ref("/total_data_masuk/" + data_random + "/rfid_status");
+      //       get_rfid_status.on('value', (snap) => {
+      //         rfid_status = snap.val();
+      //         console.log(rfid_status);
+      //         document.getElementById("penduduk").innerHTML = rfid_status;
+      //       });
+      //       let ref_tap_rfid = firebase
+      //         .database().ref()
+      //         .child("tapping_kartu");
+      //       ref_tap_rfid.on("value", (snapshot) => {
+      //         tap_rfid = snapshot.val();
+      //         toastr.options = {
+      //           "closeButton": false,
+      //           "newestOnTop": true,
+      //           "positionClass": "toast-top-right",
+      //           "preventDuplicates": true
+      //         }
+      //         var notif_time = d.toLocaleString();
+      //         if (tap_rfid == "1") toastr.success('DATA MASUK', uid);
+      //         // if (tap_rfid == "2") toastr.success('DATA KELUAR', uid)
+      //         //document.getElementById("pengunjung").innerHTML = tap_rfid;
+      //         //console.log(tap_rfid);
+      //         //parseInt(tap_rfid);
+      //       });
+      //     });
+      //   });
+      // });
 
-    // console.log(uid);
-    // document.getElementById("petugas").innerHTML = uid;
+      // console.log(uid);
+      // document.getElementById("petugas").innerHTML = uid;
 
-    var data_uid = firebase.database().ref("/temp_uid");
-    data_uid.on('value', (snap) => {
-      var uid_temp_data = snap.val();
-      console.log(uid_temp_data);
-      var get_petugas = firebase.database().ref("/Users/Petugas/" + uid_temp_data + "/kelas");
-      get_petugas.on('value', (snap) => {
-        var get_petugas_data = snap.val();
-        console.log(get_petugas_data);
-        var send_petugas_data = firebase
+      var data_uid = firebase.database().ref("/temp_uid");
+      data_uid.on("value", (snap) => {
+        var uid_temp_data = snap.val();
+        console.log(uid_temp_data);
+        var get_petugas = firebase
           .database()
-          .ref()
-          .child("DataHarian")
-          .child(year)
-          .child(month)
-          .child(day)
-          .child("Petugas")
-          .push({
-            uid: uid_temp_data,
-            tanggal: day + '-' + month + '-' + year,
-            waktu: new Date().toLocaleTimeString('en-US', { hour12: false })
-          });
-      })
-    });
+          .ref("/Users/Petugas/" + uid_temp_data + "/kelas");
+        get_petugas.on("value", (snap) => {
+          var get_petugas_data = snap.val();
+          console.log(get_petugas_data);
+          var send_petugas_data = firebase
+            .database()
+            .ref()
+            .child("DataHarian")
+            .child(year)
+            .child(month)
+            .child(day)
+            .child("Petugas")
+            .push({
+              uid: uid_temp_data,
+              tanggal: day + "-" + month + "-" + year,
+              waktu: new Date().toLocaleTimeString("en-US", { hour12: false }),
+            });
+        });
+      });
 
+      //GET DATA HARIAN
+      var ref1 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Petugas");
 
-    //GET DATA HARIAN
-    var ref1 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Petugas");
+      var ref2 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Penduduk");
 
-    var ref2 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Penduduk");
+      var ref3 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Pengunjung");
 
-    var ref3 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Pengunjung");
+      var ref4 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Laki-Laki");
 
-    var ref4 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Laki-Laki");
+      var ref5 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Perempuan");
 
-    var ref5 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Perempuan");
+      var ref6 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Anak-anak");
 
-    var ref6 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Anak-anak");
+      var ref7 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Dewasa");
 
-    var ref7 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Dewasa");
+      var ref8 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("Lansia");
 
-    var ref8 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("Lansia");
+      var ref9 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("WNI");
 
-    var ref9 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("WNI");
+      var ref10 = firebase
+        .database()
+        .ref()
+        .child("DataHarian")
+        .child(year)
+        .child(month)
+        .child(day)
+        .child("WNA");
 
-    var ref10 = firebase
-      .database()
-      .ref()
-      .child("DataHarian")
-      .child(year)
-      .child(month)
-      .child(day)
-      .child("WNA");
-
-    $(document).ready(
-      function () {
+      $(document).ready(function () {
         setInterval(function () {
           /*
           var total_data_masuk = firebase
@@ -646,7 +648,6 @@
           */
         }, 1000);
       });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
