@@ -68,7 +68,12 @@
                   <li>Gunakan NIP sebagai username</li>
                   <li>Masukkan password yang sudah terdaftar</li>
                 </ul>
-                <input type="submit" value="Masuk" id="login-form-submit" />
+                <input
+                  type="submit"
+                  value="Masuk"
+                  id="login-form-submit"
+                  onclick="login()"
+                />
                 <div class="row" style="margin-top: 40px; margin-bottom: 20px">
                   <div
                     class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center"
@@ -104,5 +109,18 @@
         </div>
       </div>
     </div>
+    <script>
+      function login() {
+        const usernames = document.getElementById("username");
+        const passwords = document.getElementById("password");
+
+        if (usernames.value == "admin" && passwords.value == "admin") {
+          alert("Selamat datang di Aponk Dashboard\n'Close' untuk masuk!");
+          window.location = "dashboard.html";
+        } else {
+          alert("Maaf anda belum memiliki akses");
+        }
+      }
+    </script>
   </body>
 </html>
