@@ -24,13 +24,13 @@
       <i class="uil uil-previous"></i>
       <span>Kembali</span>
     </a>
-    <header>Masukkan Data Personal Petugas</header>
+    <header>Masukkan Data Personal Penduduk</header>
 
     <form action="#">
       <div class="form first">
         <div class="content">
           <div class="details personal">
-            <span class="title">Data Personal Petugas</span>
+            <span class="title">Data Personal Penduduk</span>
             <span class="btnText">Klik scan untuk tap kartu RFID pada device</span>
             <div class="fields">
 
@@ -66,21 +66,10 @@
               </div>
 
               <div class="input-field">
-                <label>Nomor Induk Pegawai</label>
+                <label>Pekerjaan</label>
               </div>
               <div class="input-field">
-                <input type="number" placeholder="Masukkan NIP" required id="setnip" style="width: 100%" />
-              </div>
-
-              <div class="input-field">
-                <label>Unit Pelaksana Tugas</label>
-              </div>
-              <div class="input-field">
-                <select required style="width: 100%" id="setupt">
-                  <option disabled selected>Pilih jenis kelamin</option>
-                  <option>Lapas Kelas 1 Batu Nusakambangan</option>
-                  <option>Lapas Kelas 2 Kayu Nusakambangan</option>
-                </select>
+                <input type="text" placeholder="Masukkan Pekerjaan" required id="setpekerjaan" style="width: 100%" />
               </div>
 
               <div class="input-field">
@@ -119,7 +108,8 @@
           </div>
         </div>
         <div style="display: flex">
-          <button class="nextBtn" href="dashboard_data_live.html" onclick="storeFirebase(); return false;">
+          <button class="nextBtn" href="dashboard_data_live.html"
+            onclick="storeFirebase(); window.location.reaload(); return true;">
             <span class="btnText">Sumbit</span>
             <i class="uil uil-navigator"></i>
           </button>
@@ -222,56 +212,53 @@
         var warga = document.getElementById("setwarganegara");
         var kelamin = document.getElementById("setjeniskelamin");
         var kelompok = document.getElementById("setkelompokusia");
+        var pekerjaan = document.getElementById("setpekerjaan");
         console.log(nama);
-        
+
         firebase.database().ref("/button_scan_rfid").set('Scan Kartu Anda');
         firebase.database().ref("/button_scan_rfid").set('0');
 
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("uid")
           .set(uid_temp);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("nama")
           .set(nama.value);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("alamat")
           .set(alamat.value);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("noidentitas")
           .set(noidentitas.value);
-        firebase.database().ref("/Users/Petugas")
-          .child(uid_temp)
-          .child("nip")
-          .set(nip.value);
-        firebase.database().ref("/Users/Petugas")
-          .child(uid_temp)
-          .child("upt")
-          .set(upt.value);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("kewarganegaraan")
           .set(warga.value);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("jeniskelamin")
           .set(kelamin.value);
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("kelompokusia")
           .set(kelompok.value);
+        firebase.database().ref("/Users/Penduduk")
+          .child(uid_temp)
+          .child("pekerjaan")
+          .set(pekerjaan.value);
         var status_hadir = 0;
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("status_kehadiran")
           .set(parseInt(status_hadir));
-        firebase.database().ref("/Users/Petugas")
+        firebase.database().ref("/Users/Penduduk")
           .child(uid_temp)
           .child("kelas")
-          .set("Petugas");
+          .set("Penduduk");
       });
     };
 

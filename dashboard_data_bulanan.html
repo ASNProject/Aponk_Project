@@ -347,7 +347,6 @@
       .child("DataBulanan")
       .child(year)
       .child(month)
-      .child(day)
       .child("WNI");
 
     var ref10 = firebase
@@ -396,10 +395,13 @@
           ref9.once("value").then(function (snapshot) {
             data_wni = snapshot.numChildren();
             document.getElementById("wni").innerHTML = snapshot.numChildren();
+            console.log(snapshot.numChildren());
+            console.log(month);
+            console.log(year);
           });
           ref10.once("value").then(function (snapshot) {
             data_wna = snapshot.numChildren();
-            document.getElementById("wni").innerHTML = snapshot.numChildren();
+            document.getElementById("wna").innerHTML = snapshot.numChildren();            
           });
 
           var bulan_ini = month + "-" + year;

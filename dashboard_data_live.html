@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <script>
+    window.history.forward();
+</script>
   <nav>
     <div class="logo-name">
       <span class="logo_name">Aponk</span>
@@ -67,7 +70,13 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="input_rfid_penduduk.html" id="hireBtn">
+              <i class="uil uil-card-atm"></i>
+              <span class="link-name">Input Penduduk</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
               <i class="uil uil-signout"></i>
               <span class="link-name">Logout</span>
             </a>
@@ -86,14 +95,14 @@
     </div>
   </nav>
 
-  
-  <section class="dashboard">        
+
+  <section class="dashboard">
     <div class="dash-content">
-      <div class="overview">        
+      <div class="overview">
         <div class="title">
           <i class="uil uil uil-clock-three"></i>
-          <span class="text">DATA LIVE</span>  
-          <span class="text" id="dashboard"></span>  
+          <span class="text">DATA LIVE</span>
+          <span class="text" id="dashboard"></span>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113236.12941828853!2d108.86686015880048!3d-7.719147534403542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e650c8fdb6518f7%3A0x2d327c00e4bbe57a!2sPulau%20Nusa%20Kambangan!5e0!3m2!1sid!2sid!4v1667478454231!5m2!1sid!2sid"
@@ -120,7 +129,7 @@
 
       <div class="activity">
         <div class="title" style="margin-top: 20px; margin-bottom: 20px">
-          <i class="uil-tachometer-fast-alt"></i>          
+          <i class="uil-tachometer-fast-alt"></i>
           <span class="text">Data Lainnya</span>
         </div>
 
@@ -200,7 +209,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -588,7 +597,7 @@
           if (second_x.toString().length < 2) second_x = '0' + second_x;
 
           var date_time_x = ("  :  " + day + "-" + month + "-" + year + " | " + hour_x + ":" + minute_x + ":" + second_x);
-          
+
           document.getElementById("dashboard").innerHTML = date_time_x;
 
           // $('#petugas').text(data_petugas);
