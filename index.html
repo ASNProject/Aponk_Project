@@ -54,11 +54,67 @@
                 <div class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
                   <img src="assets/images/pengayoman.png" alt="" style="width: 60px" />
                 </div>
+<!--update-tampilan-data-->
                 <div class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
                   <img src="assets/images/Pemasyarakatan.png" alt="" style="width: 60px" />
                 </div>
                 <div class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center">
                   <img src="assets/images/PN.png" alt="" style="width: 60px" />
+                <input
+                  type="text"
+                  class="username"
+                  id="username"
+                  name="username"
+                  placeholder="Masukkan username"
+                />
+                <input
+                  type="password"
+                  class="password"
+                  id="password"
+                  name="password"
+                  placeholder="Masukkan password"
+                />
+                <p class="txt_perhatian">Perhatian!</p>
+                <ul class="list_perhatian">
+                  <li>Pastikan anda sudah terdaftar untuk mendapatkan akses</li>
+                  <li>Gunakan NIP sebagai username</li>
+                  <li>Masukkan password yang sudah terdaftar</li>
+                </ul>
+                <input
+                  type="submit"
+                  value="Masuk"
+                  id="login-form-submit"
+                  onclick="login()"
+                />
+                <div class="row" style="margin-top: 40px; margin-bottom: 20px">
+                  <div
+                    class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="assets/images/pengayoman.png"
+                      alt=""
+                      style="width: 60px"
+                    />
+                  </div>
+                  <div
+                    class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="assets/images/Pemasyarakatan.png"
+                      alt=""
+                      style="width: 60px"
+                    />
+                  </div>
+                  <div
+                    class="col-4 col-md-4 col-sm-4 d-flex justify-content-center align-items-center"
+                  >
+                    <img
+                      src="assets/images/PN.png"
+                      alt=""
+                      style="width: 60px"
+                    />
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -66,6 +122,7 @@
         </div>        
       </div>
     </div>
+<!-- update-tampilan-data -->
   </div>
   <script type="text/javascript" src="main_login.js"></script>
   <script>
@@ -74,3 +131,20 @@
 </body>
 
 </html>
+
+    <script>
+      function login() {
+        const usernames = document.getElementById("username");
+        const passwords = document.getElementById("password");
+
+        if (usernames.value == "admin" && passwords.value == "admin") {
+          alert("Selamat datang di Aponk Dashboard\n'Close' untuk masuk!");
+          window.location = "dashboard.html";
+        } else {
+          alert("Maaf anda belum memiliki akses");
+        }
+      }
+    </script>
+  </body>
+</html>
+
