@@ -104,5 +104,18 @@
         </div>
       </div>
     </div>
+    <script>
+      function login() {
+        const usernames = document.getElementById("username");
+        const passwords = document.getElementById("password");
+
+        if (usernames.value == "admin" && passwords.value == "admin") {
+          alert("Selamat datang di Aponk Dashboard\n'Close' untuk masuk!");
+          window.location = "dashboard.html";
+        } else {
+          alert("Maaf anda belum memiliki akses");
+        }
+      }
+    </script>
   </body>
 </html>
